@@ -1,0 +1,51 @@
+Model:
+  predictor: "autonomous_motion"
+  hidden_dim: 256
+  num_heads: 8
+  num_layers: 6
+  dropout: 0.1
+  activation: "gelu"
+  num_historical_steps: 11
+  num_future_steps: 80
+  num_total_steps: 91
+  
+  advanced_features:
+    use_lane_tokens: true
+    use_relational_attention: true
+    lane_tokens:
+      count: 100
+      bucket_size: 100
+      embedding_dim: 64
+    relational_attention:
+      num_heads: 8
+      head_dim: 16
+      rel_feature_dim: 5
+      bias_dim: 8
+
+  decoder:
+    hidden_dim: 256
+    num_heads: 8
+    num_layers: 6
+    dropout: 0.1
+    token_size: 1000
+    use_lane_tokens: true
+    use_relational_attention: true
+    lane_token_embedding_dim: 64
+
+Dataset:
+  root: "." 
+  name: "waymo_motion"
+  batch_size: 32 
+  num_workers: 8 
+  shuffle: false 
+  pin_memory: true
+  persistent_workers: true
+  num_historical_steps: 11
+  num_future_steps: 80
+  num_total_steps: 91
+
+time_info: &time_info
+  num_historical_steps: 11
+  num_future_steps: 80
+  num_total_steps: 91
+

@@ -1,0 +1,24 @@
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "easydict",
+    "numpy",
+    "pandas",
+    "pytorch-lightning",
+    "scipy",
+    "torch-cluster",
+    "torch-geometric",
+    "torch-scatter",
+    "torch",
+    "torchmetrics",
+    "tqdm",
+]
+
+
+[tool.setuptools]
+packages = ["autonomous_driving_predictor"]
